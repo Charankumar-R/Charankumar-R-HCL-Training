@@ -1,8 +1,0 @@
-package Utils;
-
-public class ExcelReader {
-	public static String[][] readData() {
-		
-		return null;
-	}
-}

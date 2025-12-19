@@ -1,0 +1,20 @@
+# Eclipse
+.metadata/
+.settings/
+.project
+.classpath
+
+# Java
+*.class
+*.log
+
+# Maven / Gradle
+target/
+build/
+
+# TestNG / Reports
+test-output/
+
+# OS
+.DS_Store
+Thumbs.db

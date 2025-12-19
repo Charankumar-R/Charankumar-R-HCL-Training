@@ -1,9 +1,0 @@
-package Mouse_and_Keyboard_Actions;
-
-import org.testng.annotations.Test;
-
-public class Mouse {
-  @Test
-  public void f() {
-  }
-}
