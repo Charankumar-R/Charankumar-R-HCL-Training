@@ -1,0 +1,60 @@
+package Selenium;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioCheckboxDemo {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+
+        System.out.println("Current URL: " + driver.getCurrentUrl());
+        System.out.println("Title: " + driver.getTitle());
+        System.out.println("Contains 'radio1' in source? " + driver.getPageSource().contains("radio1"));
+
+        List<WebElement> radios = driver.findElements(By.name("radioButton"));
+        System.out.println("Number of radios found: " + radios.size());
+
+        if (!radios.isEmpty()) {
+            WebElement radio1 = radios.get(1);
+            radio1.click();
+            System.out.println("Radio button 1 selected: " + radio1.isSelected());
+        } else {
+            System.out.println("No radio buttons found – check the page content or URL.");
+        }
+        
+
+
+        List<WebElement> checkboxes = driver.findElements(By.cssSelector("input[type='checkbox']"));
+        System.out.println("Number of checkboxes found: " + checkboxes.size());
+
+        if (checkboxes.size() >= 2) {
+            WebElement checkBox1 = checkboxes.get(0);
+            WebElement checkBox2 = checkboxes.get(1);
+
+            checkBox1.click();
+            checkBox2.click();
+
+            System.out.println("Checkbox 1 selected: " + checkBox1.isSelected());
+            System.out.println("Checkbox 2 selected: " + checkBox2.isSelected());
+
+            if (checkboxes.size() >= 3) {
+                WebElement checkBox3 = checkboxes.get(2);
+                System.out.println("Checkbox 3 selected (should be false): " + checkBox3.isSelected());
+            }
+        } else {
+            System.out.println("Less than 2 checkboxes found – check the page.");
+        }
+
+
+//        driver.quit();
+    }
+}

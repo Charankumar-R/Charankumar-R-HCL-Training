@@ -1,0 +1,9 @@
+package Assingments;
+
+import org.testng.annotations.Test;
+
+public class MultipleWindowTest  {
+  @Test
+  public void f() {
+  }
+}

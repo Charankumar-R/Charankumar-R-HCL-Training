@@ -1,0 +1,50 @@
+package Selenium_Basics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Flipkart {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();;
+		driver.get("https://www.flipkart.com/");
+		
+		WebElement search = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/header/div[1]/div[2]/form/div/div/input"));
+		search.click();
+		
+		search.sendKeys("Asus Vivobook s16");
+		
+		search.sendKeys(Keys.ENTER);
+		
+		WebElement productName = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[2]"));
+		System.out.println(productName.getText());
+		
+		WebElement rating = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[3]/span[2]"));
+		System.out.println(rating.getText());
+		
+		WebElement select = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[4]/div/div/div/a/div[1]/div[1]/div/div/img"));
+		select.click();		
+		
+		for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+        }
+		
+		
+//		WebElement review = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[9]/div[6]/div/a"));
+//		review.click();
+		
+		WebElement addToCart = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button"));
+		addToCart.click();
+		
+//		WebElement lapProtection = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div[2]/div[3]/button"));
+//		lapProtection.click();
+		
+		
+	}
+
+}

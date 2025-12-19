@@ -1,0 +1,75 @@
+package Utils;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import Utils.Excelreader;
+
+public class DataProviderTest {
+
+	WebDriver driver;
+
+	@BeforeClass
+	public void setup() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.bookswagon.com/");
+	}
+
+	@Test(dataProvider = "bookData")
+	public void searchSortAndFetchNthProduct(String searchText, String sortOption, String nthBook) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		// 🔹 Search
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inputbar"))).clear();
+		driver.findElement(By.className("inputbar")).sendKeys(searchText);
+		driver.findElement(By.name("btnTopSearch")).sendKeys(Keys.ENTER);
+
+		// 🔹 Wait for results
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("preferences-show")));
+
+		// 🔹 Apply sorting
+		Select sort = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ddlSort"))));
+		sort.selectByVisibleText(sortOption);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+//
+//		List<WebElement> results = driver.findElements(By.className("list-view-books"));
+//		while (results.size() < nthBook) {
+//			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("full-loader")));
+//			wait.until(ExpectedConditions.elementToBeClickable(By.id("lastPostLoader"))).click();
+//			results = driver.findElements(By.className("list-view-books"));
+//			if (driver.findElements(By.id("lastPostLoader")).isEmpty())
+//				break;
+//		}
+
+		// 🔹 Fetch nth product AFTER sorting
+		String newText = driver.findElement(By.xpath("(//div[@class='title'])[" + nthBook + "]/a")).getText();
+
+		System.out.println("Search: " + searchText + " | Sort: " + sortOption + " | Nth Product: " + newText);
+	}
+
+	@DataProvider(name = "bookData")
+	public String[][] getBookData() {
+	    return Excelreader.readData();
+	}
+
+
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
+}

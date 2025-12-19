@@ -1,0 +1,9 @@
+package BooksWagontest;
+
+import org.testng.annotations.Test;
+
+public class booksWagonTest {
+  @Test
+  public void f() {
+  }
+}

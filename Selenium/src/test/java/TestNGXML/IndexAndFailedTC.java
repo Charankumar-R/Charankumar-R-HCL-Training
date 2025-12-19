@@ -1,0 +1,30 @@
+package TestNGXML;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+public class IndexAndFailedTC {
+	
+	@Test(groups = { "Smoke Test" })
+	public void showMsg1() {
+		Assert.assertEquals("pass", "pass");
+		Reporter.log("Test Case one is passed");
+	}
+	@Test()
+	public void showMsg2() {
+		Assert.assertEquals("pass1", "pass", "show Message2 is failed");
+	}
+	@Test(dependsOnMethods = { "showMsg2" })
+	public void showMsg3() {
+		System.out.println("this is test case is skipped");
+		Reporter.log("Test case 3 is skipped");
+	}
+	@Test(groups = { "Smoke Test" })
+	public void showMsg4() {
+		Assert.assertTrue(true);
+		Reporter.log("This is test 4");
+	}
+	@Test(enabled = false)
+	public void showMsg5() {
+		System.out.println("this is test is ignored");
+	}
+}

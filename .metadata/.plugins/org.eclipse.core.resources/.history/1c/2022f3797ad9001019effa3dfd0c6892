@@ -1,0 +1,38 @@
+package TestNG;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+
+public class TestOrder {
+	@Test(priority = 1)
+	public void Water() {
+		IO.println("Test Water");
+	}
+
+	@Test(priority = 0)
+	public void Dragon() {
+		IO.println("Test Dragon");
+	}
+
+//	@Test(priority = 2)
+//	public void flying() {
+//		IO.println("Test Flying");
+//	}
+
+	@Test
+	public void a() {
+		IO.println("Test 1");
+	}
+
+	@BeforeClass
+	public void beforeClass() {
+		IO.println("Before Class");
+	}
+
+	@AfterClass
+	public void afterClass() {
+		IO.println("After Class");
+	}
+
+}

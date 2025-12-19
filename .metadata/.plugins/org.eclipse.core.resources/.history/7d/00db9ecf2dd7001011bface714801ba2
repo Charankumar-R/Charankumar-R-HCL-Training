@@ -1,0 +1,9 @@
+package Mouse_and_Keyboard_Actions;
+
+import org.testng.annotations.Test;
+
+public class MouseAndKeyboardTest {
+  @Test
+  public void f() {
+  }
+}

@@ -1,0 +1,20 @@
+package Utils;
+
+import java.io.FileInputStream;
+
+public class PropertyReader {
+
+	public static void readProperty() {
+		
+		String fileName = "src\\main\\resources\\config\\config.properties";
+		
+		
+		try {
+			FileInputStream fis = ;
+			
+		} catch (Exception e) {
+			
+		}
+	}
+
+}

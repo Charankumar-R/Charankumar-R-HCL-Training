@@ -1,0 +1,45 @@
+package Basic_Program;
+
+import java.util.Scanner;
+
+public class ReplaceString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        
+        System.out.print("Enter the original string: ");
+        String str = sc.nextLine();
+
+        System.out.println("\n1. Replace a substring");
+        System.out.println("2. Replace a character");
+        System.out.print("Enter your choice (1 or 2): ");
+        int choice = sc.nextInt();
+        sc.nextLine(); 
+
+        if (choice == 1) {
+            System.out.print("Enter the substring to be replaced: ");
+            String oldSub = sc.nextLine();
+            System.out.print("Enter the new substring: ");
+            String newSub = sc.nextLine();
+
+            String result = str.replace(oldSub, newSub);
+            System.out.println("\nOriginal string : " + str);
+            System.out.println("Modified string : " + result);
+
+        } else if (choice == 2) {
+            System.out.print("Enter the character to be replaced: ");
+            char oldCh = sc.nextLine().charAt(0);
+            System.out.print("Enter the new character: ");
+            char newCh = sc.nextLine().charAt(0);
+
+            String result = str.replace(oldCh, newCh);
+            System.out.println("\nOriginal string : " + str);
+            System.out.println("Modified string : " + result);
+
+        } else {
+            System.out.println("Invalid choice.");
+        }
+
+        sc.close();
+    }
+}

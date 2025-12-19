@@ -1,0 +1,8 @@
+ackage TestNGXML;
+
+public class Snippet {
+	public static void main(String[] args) {
+		"dd-MM-yyyy_hh_mm_ss"
+	}
+}
+

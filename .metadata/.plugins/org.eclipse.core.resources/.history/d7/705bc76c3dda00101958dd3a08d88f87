@@ -1,0 +1,100 @@
+package BooksWagontest;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderTest {
+
+	WebDriver driver;
+
+	@BeforeClass
+	public void beforeClass() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.bookswagon.com/");
+	}
+
+	@Test(dataProvider = "getTestData")
+	public void testDataProvider(String bookName, String sortBy, int nthBook) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		WebElement search = driver.findElement(By.id("inputbar"));
+		search.clear();
+		search.sendKeys(bookName);
+		search.sendKeys(Keys.ENTER);
+
+		System.out.println(driver.findElement(By.className("preferences-show")).getText());
+
+		Select sort = new Select(driver.findElement(By.id("ddlSort")));
+		sort.selectByVisibleText(sortBy);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("full-loader")));
+		driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+		
+		List<WebElement> results = driver.findElements(By.className("list-view-books"));
+
+		while (results.size() < nthBook) {
+
+		    // 1. Wait for overlay to disappear
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+		            By.className("full-loader")));
+
+		    // 2. Check if loader exists (end of results)
+		    List<WebElement> loadMore = driver.findElements(By.id("lastPostLoader"));
+		    if (loadMore.isEmpty()) {
+		        System.out.println("No more books available.");
+		        break;
+		    }
+
+		    // 3. Wait until loader is truly clickable
+		    wait.until(ExpectedConditions.and(
+		            ExpectedConditions.visibilityOf(loadMore.get(0)),
+		            ExpectedConditions.elementToBeClickable(loadMore.get(0))
+		    ));
+
+		    // 4. Click loader
+		    loadMore.get(0).click();
+
+		    // 5. Wait again for loading to finish
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+		            By.className("full-loader")));
+
+		    // 6. Refresh results
+		    results = driver.findElements(By.className("list-view-books"));
+		}
+
+		System.out.println(results.size());
+		String getBook = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='title'])[" + nthBook + "]/a")))
+				.getText();
+		System.out.println(getBook);
+
+	}
+
+
+	@DataProvider
+	public Object[][] getTestData() {
+		Object[][] data = new Object[][] { { "Selenium", "Price - Low to High", 44 },
+				{ "Java", "Discount - High to Low", 27 } };
+		return data;
+	}
+
+	@AfterClass
+	public void afterClass() {
+		driver.quit();
+	}
+
+}

@@ -1,0 +1,61 @@
+package Selenium_Basics;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+public class FlipkartNthProductTest {
+
+    @Test
+    public void flipkartNthProductTest() {
+
+        WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        driver.get("https://www.flipkart.com/");
+
+        searchAndPrintNthProduct(driver, wait, "Laptop", 7);
+        searchAndPrintNthProduct(driver, wait, "TV", 13);
+        searchAndPrintNthProduct(driver, wait, "Smart Phone", 2);
+
+        driver.quit();
+    }
+
+    private void searchAndPrintNthProduct(WebDriver driver, WebDriverWait wait, String productName, int n) {
+
+        WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(By.name("q")));
+
+        searchBox.sendKeys(Keys.CONTROL + "a");
+        searchBox.sendKeys(Keys.DELETE);
+
+        searchBox.sendKeys(productName);
+        searchBox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(
+                By.xpath("//a[contains(@href,'/p/')]"), n - 1));
+
+        List<WebElement> products = driver.findElements(
+                By.xpath("//a[contains(@href,'/p/')]"));
+
+        System.out.println("\nSearching for: " + productName);
+        System.out.println("Total product links found: " + products.size());
+
+        if (products.size() >= n) {
+            String nthProductName = products.get(n - 1).getText();
+            System.out.println("The " + n + "th product is: " + nthProductName);
+        } else {
+            System.out.println("Less than " + n + " products available for: " + productName);
+        }
+    }
+}

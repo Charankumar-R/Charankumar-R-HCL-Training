@@ -1,0 +1,33 @@
+package TestNG;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+
+public class TestOrder {
+  @Test
+  public void test1() {
+	  IO.println("Test 1");
+  }
+  
+  @Test
+  public void test3() {
+	  IO.println("Test 2");
+  }
+  
+  @Test
+  public void test2() {
+	  IO.println("Test 3");
+  }
+  
+  @BeforeClass
+  public void beforeClass() {
+	  IO.println("Before Class");
+  }
+
+  @AfterClass
+  public void afterClass() {
+	  IO.println("After Class");
+  }
+
+}

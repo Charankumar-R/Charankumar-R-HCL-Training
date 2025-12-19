@@ -1,0 +1,19 @@
+
+import org.testng.annotations.Test;
+
+public class Amazon {
+	@Test
+	public void aLogin() {
+		System.out.println("This is Amazon Login Page");
+	}
+
+	@Test
+	public void aSearchProduct() {
+		System.out.println("This is Amazon Search Page");
+	}
+
+	@Test
+	public void aSelectProduct() {
+		System.out.println("This is Amazon Display products page");
+	}
+}

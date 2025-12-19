@@ -1,0 +1,46 @@
+package Day6;
+
+import java.util.Scanner;
+
+public class BinarySearch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in the sorted array: ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+        System.out.println("Enter " + n + " integer values in SORTED (ascending) order:");
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+
+        System.out.print("Enter the element to search: ");
+        int key = sc.nextInt();
+
+        int low = 0, high = n - 1, mid;
+        boolean found = false;
+        int position = -1;
+
+        while (low <= high) {
+            mid = (low + high) / 2;
+
+            if (arr[mid] == key) {
+                found = true;
+                position = mid;
+                break;
+            } else if (arr[mid] < key) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        if (found) {
+            System.out.println("Element " + key + " found at index " + position + " (0-based index).");
+        } else {
+            System.out.println("Element " + key + " not found in the array.");
+        }
+
+        sc.close();
+    }
+}
