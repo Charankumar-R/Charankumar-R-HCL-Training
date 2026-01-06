@@ -23,11 +23,9 @@ public class TakeScreenshotTest {
 		File src = screen.getScreenshotAs(OutputType.FILE);
 //        File dest = new File("C:\\Users\\chara\\page.png");
 //        FileHandler.copy(src, dest);
-//        
-//
+
 		File targetDir = new File("screenshots");
 		targetDir.mkdirs(); // create folder if missing
-//
 		FileUtils.copyFileToDirectory(src, targetDir);
 
 		System.out.println("Screenshot saved to: " + src.getAbsolutePath());

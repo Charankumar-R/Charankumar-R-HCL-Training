@@ -1,5 +1,0 @@
-18/12/2025 14:26:51 DEBUG LoggingTest:11 - The value of empNo: 100321
-18/12/2025 14:26:51  INFO LoggingTest:12 - Menu is clicked
-18/12/2025 14:26:51  WARN LoggingTest:13 - First name field is showing warning
-18/12/2025 14:26:51 ERROR LoggingTest:14 - Login failure for invalid crendentials
-18/12/2025 14:26:51 FATAL LoggingTest:15 - Internal Server Error, Website is not Displayed
