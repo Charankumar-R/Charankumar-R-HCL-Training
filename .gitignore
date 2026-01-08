@@ -6,7 +6,6 @@
 
 # Java
 *.class
-*.log
 
 # Maven / Gradle
 target/

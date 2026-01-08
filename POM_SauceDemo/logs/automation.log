@@ -1,0 +1,14 @@
+2026-01-08 15:05:19 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
+2026-01-08 15:05:19 INFO  utils.Base - Step 1: Login
+2026-01-08 15:05:20 INFO  utils.AssertUtils - Login successful
+2026-01-08 15:05:20 INFO  utils.Base - Step 2: Select Product
+2026-01-08 15:05:20 INFO  utils.AssertUtils - Product Page opened successfully
+2026-01-08 15:05:20 INFO  utils.Base - Step 3: Add To Cart
+2026-01-08 15:05:20 INFO  utils.AssertUtils - Add to Cart button working
+2026-01-08 15:05:20 INFO  utils.Base - Step 4: Cart Page
+2026-01-08 15:05:20 INFO  utils.AssertUtils - Cart page shown
+2026-01-08 15:05:20 INFO  utils.Base - Step 5: Checkout
+2026-01-08 15:05:30 ERROR utils.AssertUtils - TEST FAILED: Checkout failed
+2026-01-08 15:05:30 WARN  utils.AssertUtils - Customer Information skipped due to previous failure
+2026-01-08 15:05:30 WARN  utils.AssertUtils - Overview skipped due to previous failure
+2026-01-08 15:05:30 WARN  utils.AssertUtils - Logout skipped due to previous failure
