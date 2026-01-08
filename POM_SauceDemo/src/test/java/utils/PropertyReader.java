@@ -8,7 +8,7 @@ public class PropertyReader {
 
 	public static Properties readProperty() {
 		
-		String fileName = "/POM_SauceDemo/src/test/resources/config/config.properties";
+		String fileName = "src/test/resources/config/config.properties";
 		FileInputStream fis;
 		Properties prop = null;
 		
