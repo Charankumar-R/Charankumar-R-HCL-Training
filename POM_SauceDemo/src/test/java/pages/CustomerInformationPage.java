@@ -1,22 +1,35 @@
 package pages;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import objectRepository.Locators;
 
 public class CustomerInformationPage {
-	WebDriver driver;
-	public CustomerInformationPage(WebDriver driver) {
+	private WebDriver driver;
+	private WebDriverWait wait;
+
+	public CustomerInformationPage(WebDriver driver, WebDriverWait wait) {
 		this.driver = driver;
+		this.wait = wait;
 	}
 
-	public void addCustomerDetails() {
-		String verifyInformationPage = driver.findElement(Locators.verifyInformationPage).getText();
-		Assert.assertEquals(verifyInformationPage, "Checkout: Your Information");
-		driver.findElement(Locators.informationFirstName).sendKeys("Charankumar");
-		driver.findElement(Locators.informationLastName).sendKeys("R");
-		driver.findElement(Locators.informationPostalCode).sendKeys("631001");
-		driver.findElement(Locators.informationConfirm).click();
+	public boolean addCustomerDetails() {
+		boolean isFound;
+		try {
+			driver.findElement(Locators.informationFirstName).sendKeys("Charankumar");
+			driver.findElement(Locators.informationLastName).sendKeys("R");
+			driver.findElement(Locators.informationPostalCode).sendKeys("631001");
+			driver.findElement(Locators.informationConfirm).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.verifyOverview));
+			String verifyOverview = driver.findElement(Locators.verifyOverview).getText();
+			isFound = verifyOverview.equals("Checkout: Overview");
+			return isFound;
+		} catch (TimeoutException te) {
+			isFound = false;
+			return isFound;
+		}
 	}
 }
