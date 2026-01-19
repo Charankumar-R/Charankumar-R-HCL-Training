@@ -1,5 +1,7 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +16,9 @@ public class CheckoutPage {
 	public CheckoutPage(WebDriver driver, WebDriverWait wait) {
 		this.driver = driver;
 		this.wait = wait;
+		wait = new WebDriverWait(driver,Duration.ofSeconds(40));
 	}
+	
 	public boolean clickCheckout() {
 		boolean isFound;
 		try {

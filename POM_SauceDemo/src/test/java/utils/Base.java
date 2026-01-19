@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -63,29 +66,30 @@ public class Base {
 
 	@BeforeClass
 	public void setUp() {
+		extSparkReporter = new ExtentSparkReporter("reports/ExtentReport.html");
+		extReports = new ExtentReports();
+		extReports.attachReporter(extSparkReporter);
 
-		AssertUtils.reset();   
-		
-	    extSparkReporter = new ExtentSparkReporter("reports/ExtentReport.html");
-	    extReports = new ExtentReports();
-	    extReports.attachReporter(extSparkReporter);
-
-	    extTest = extReports.createTest(getClass().getSimpleName());
-
-	    launchBrowser();
+//	    extTest = extReports.createTest(getClass().getSimpleName());	
+		}
+	
+	@BeforeMethod
+	public void setUpMethod() {
+		launchBrowser(); // new browser per iteration
+		AssertUtils.reset(); // reset step counter
 	}
 
+	@AfterMethod
+	public void tearDownMethod() {
+		driver.quit(); // kill browser
+	}
 
 	@AfterClass
 	public void afterClass() {
+		extReports.flush();
 
-	    if (extReports != null) {
-	        extReports.flush();
-	    }
+//		driver.quit();
 
-	    if (driver != null) {
-	        driver.quit();
-	    }
 	}
 
 }

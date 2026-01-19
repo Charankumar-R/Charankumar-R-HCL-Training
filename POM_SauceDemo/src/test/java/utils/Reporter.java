@@ -11,8 +11,6 @@ import com.aventstack.extentreports.Status;
 public class Reporter {
 	public static void generateReport(WebDriver driver, ExtentTest extTest, Status status, String stepMessage) {
 
-		if (extTest == null)
-			return;
 
 		if (status == Status.PASS) {
 			extTest.pass(stepMessage);

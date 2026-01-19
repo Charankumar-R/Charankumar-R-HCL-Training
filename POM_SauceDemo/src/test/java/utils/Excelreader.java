@@ -8,7 +8,7 @@ public class Excelreader {
 
 	public static String[][] readData() {
 
-		String filePath = "src/test/resources/testdata/BookList.xlsx";
+		String filePath = "src/test/resources/testdata/SauceDemo.xlsx";
 		FileInputStream fis = null;
 		XSSFWorkbook workbook = null;
 
@@ -16,7 +16,7 @@ public class Excelreader {
 			fis = new FileInputStream(filePath);
 			workbook = new XSSFWorkbook(fis);
 
-			XSSFSheet sheet = workbook.getSheet("ProductDetails");
+			XSSFSheet sheet = workbook.getSheet("UserDetails");
 
 			int rowCount = sheet.getLastRowNum();
 			int colCount = sheet.getRow(0).getLastCellNum();

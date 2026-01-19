@@ -27,14 +27,14 @@ public class Locators {
 	public static By verifyCheckout = By.cssSelector("[data-test='title']");
 	
 	//Locators for Customer Information Page
-	public static By verifyInformationPage = By.cssSelector("[data-test='titles']");
+	public static By verifyInformationPage = By.cssSelector("[data-test='title']");
 	public static By informationFirstName = By.id("first-name");
 	public static By informationLastName = By.id("last-name");
 	public static By informationPostalCode= By.id("postal-code");
 	public static By informationConfirm= By.id("continue");
 	
 	//Locators for Overview Page
-	public static By verifyOverview = By.cssSelector("[data-test='titles']");
+	public static By verifyOverview = By.cssSelector("[data-test='title']");
 	public static By finishButton = By.id("finish");
 	
 	//Locators for Logout Page

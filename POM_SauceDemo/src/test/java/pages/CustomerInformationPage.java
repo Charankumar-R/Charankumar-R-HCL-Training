@@ -16,12 +16,12 @@ public class CustomerInformationPage {
 		this.wait = wait;
 	}
 
-	public boolean addCustomerDetails() {
+	public boolean addCustomerDetails(String first, String last, String pin) {
 		boolean isFound;
 		try {
-			driver.findElement(Locators.informationFirstName).sendKeys("Charankumar");
-			driver.findElement(Locators.informationLastName).sendKeys("R");
-			driver.findElement(Locators.informationPostalCode).sendKeys("631001");
+			driver.findElement(Locators.informationFirstName).sendKeys(first);
+			driver.findElement(Locators.informationLastName).sendKeys(last);
+			driver.findElement(Locators.informationPostalCode).sendKeys(pin);
 			driver.findElement(Locators.informationConfirm).click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.verifyOverview));
 			String verifyOverview = driver.findElement(Locators.verifyOverview).getText();
