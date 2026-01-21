@@ -1,43 +1,43 @@
-2026-01-09 10:17:51 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
-2026-01-09 10:17:51 INFO  utils.Base - Step 1: Login
-2026-01-09 10:17:51 INFO  utils.AssertUtils - Login successful
-2026-01-09 10:17:51 INFO  utils.Base - Step 2: Select Product
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Product Page opened successfully
-2026-01-09 10:17:52 INFO  utils.Base - Step 3: Add To Cart
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Add to Cart button working
-2026-01-09 10:17:52 INFO  utils.Base - Step 4: Cart Page
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Cart page shown
-2026-01-09 10:17:52 INFO  utils.Base - Step 5: Checkout
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Checkout page opened
-2026-01-09 10:17:52 INFO  utils.Base - Step 6: Customer Information
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Overview page shown
-2026-01-09 10:17:52 INFO  utils.Base - Step 7: Finish Order
-2026-01-09 10:17:52 INFO  utils.AssertUtils - Order completed
-2026-01-09 10:17:52 INFO  utils.Base - Step 8: Logout
-2026-01-09 10:17:53 INFO  utils.AssertUtils - Logout successful
-2026-01-09 10:17:53 INFO  utils.Base - ===== Test Completed: PlaceOrderTest =====
-2026-01-09 10:17:54 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
-2026-01-09 10:17:54 INFO  utils.Base - Step 1: Login
-2026-01-09 10:18:05 ERROR utils.AssertUtils - TEST FAILED: Login failed
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Select Product skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Add To Cart skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Cart Page skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Checkout skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Customer Information skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Overview skipped due to previous failure
-2026-01-09 10:18:05 WARN  utils.AssertUtils - Logout skipped due to previous failure
-2026-01-09 10:18:07 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
-2026-01-09 10:18:07 INFO  utils.Base - Step 1: Login
-2026-01-09 10:18:07 INFO  utils.AssertUtils - Login successful
-2026-01-09 10:18:07 INFO  utils.Base - Step 2: Select Product
-2026-01-09 10:18:07 INFO  utils.AssertUtils - Product Page opened successfully
-2026-01-09 10:18:07 INFO  utils.Base - Step 3: Add To Cart
-2026-01-09 10:18:07 INFO  utils.AssertUtils - Add to Cart button working
-2026-01-09 10:18:07 INFO  utils.Base - Step 4: Cart Page
-2026-01-09 10:18:07 INFO  utils.AssertUtils - Cart page shown
-2026-01-09 10:18:07 INFO  utils.Base - Step 5: Checkout
-2026-01-09 10:18:07 INFO  utils.AssertUtils - Checkout page opened
-2026-01-09 10:18:07 INFO  utils.Base - Step 6: Customer Information
-2026-01-09 10:18:08 ERROR utils.AssertUtils - TEST FAILED: Customer info failed
-2026-01-09 10:18:08 WARN  utils.AssertUtils - Overview skipped due to previous failure
-2026-01-09 10:18:08 WARN  utils.AssertUtils - Logout skipped due to previous failure
+2026-01-19 11:30:21 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
+2026-01-19 11:30:21 INFO  utils.Base - Step 1: Login
+2026-01-19 11:30:21 INFO  utils.AssertUtils - Login successful
+2026-01-19 11:30:21 INFO  utils.Base - Step 2: Select Product
+2026-01-19 11:30:21 INFO  utils.AssertUtils - Product Page opened successfully
+2026-01-19 11:30:21 INFO  utils.Base - Step 3: Add To Cart
+2026-01-19 11:30:21 INFO  utils.AssertUtils - Add to Cart button working
+2026-01-19 11:30:21 INFO  utils.Base - Step 4: Cart Page
+2026-01-19 11:30:21 INFO  utils.AssertUtils - Cart page shown
+2026-01-19 11:30:21 INFO  utils.Base - Step 5: Checkout
+2026-01-19 11:30:22 INFO  utils.AssertUtils - Checkout page opened
+2026-01-19 11:30:22 INFO  utils.Base - Step 6: Customer Information
+2026-01-19 11:30:22 INFO  utils.AssertUtils - Overview page shown
+2026-01-19 11:30:22 INFO  utils.Base - Step 7: Finish Order
+2026-01-19 11:30:22 INFO  utils.AssertUtils - Order completed
+2026-01-19 11:30:22 INFO  utils.Base - Step 8: Logout
+2026-01-19 11:30:23 INFO  utils.AssertUtils - Logout successful
+2026-01-19 11:30:23 INFO  utils.Base - ===== Test Completed: PlaceOrderTest =====
+2026-01-19 11:30:24 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
+2026-01-19 11:30:24 INFO  utils.Base - Step 1: Login
+2026-01-19 11:30:34 ERROR utils.AssertUtils - TEST FAILED: Login failed
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Select Product skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Add To Cart skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Cart Page skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Checkout skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Customer Information skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Overview skipped due to previous failure
+2026-01-19 11:30:34 WARN  utils.AssertUtils - Logout skipped due to previous failure
+2026-01-19 11:30:35 INFO  utils.Base - ===== Test Started: PlaceOrderTest =====
+2026-01-19 11:30:35 INFO  utils.Base - Step 1: Login
+2026-01-19 11:30:35 INFO  utils.AssertUtils - Login successful
+2026-01-19 11:30:35 INFO  utils.Base - Step 2: Select Product
+2026-01-19 11:30:36 INFO  utils.AssertUtils - Product Page opened successfully
+2026-01-19 11:30:36 INFO  utils.Base - Step 3: Add To Cart
+2026-01-19 11:30:36 INFO  utils.AssertUtils - Add to Cart button working
+2026-01-19 11:30:36 INFO  utils.Base - Step 4: Cart Page
+2026-01-19 11:30:36 INFO  utils.AssertUtils - Cart page shown
+2026-01-19 11:30:36 INFO  utils.Base - Step 5: Checkout
+2026-01-19 11:30:36 INFO  utils.AssertUtils - Checkout page opened
+2026-01-19 11:30:36 INFO  utils.Base - Step 6: Customer Information
+2026-01-19 11:30:36 ERROR utils.AssertUtils - TEST FAILED: Customer info failed
+2026-01-19 11:30:36 WARN  utils.AssertUtils - Overview skipped due to previous failure
+2026-01-19 11:30:36 WARN  utils.AssertUtils - Logout skipped due to previous failure

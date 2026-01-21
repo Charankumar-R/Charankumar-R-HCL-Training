@@ -17,3 +17,6 @@ test-output/
 # OS
 .DS_Store
 Thumbs.db
+
+# Another repo
+/sauceDemoPageFactory/report-repo
