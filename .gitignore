@@ -25,3 +25,7 @@ ExtentReport.html
 # Logs
 logs/
 
+#Vs-Code
+.dist
+.qodo
+.vscode
