@@ -8,24 +8,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import objectRepository.*;
 
-public class LoginPage {
+public class CheckoutPage {
 
     private WebDriverWait wait;
     private Locators locator;
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
+    public CheckoutPage(WebDriver driver, WebDriverWait wait) {
         this.wait = wait;
         locator = new Locators();
         PageFactory.initElements(driver, locator);
     }
 
-    public boolean validateLogin(String user, String pwd) {
+    public boolean clickCheckout() {
         try {
-        	locator.userName.sendKeys(user);
-        	locator.password.sendKeys(pwd);
-        	locator.loginButton.click();
+        	locator.checkoutBtn.click();
             wait.until(ExpectedConditions.visibilityOf(locator.pageTitle));
-            return locator.pageTitle.getText().equals("Products");
+            return locator.pageTitle.getText().equals("Checkout: Your Information");
         } catch (TimeoutException e) {
             return false;
         }

@@ -8,24 +8,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import objectRepository.*;
 
-public class LoginPage {
+public class AddToCartPage {
 
     private WebDriverWait wait;
     private Locators locator;
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
+    public AddToCartPage(WebDriver driver, WebDriverWait wait) {
         this.wait = wait;
         locator = new Locators();
         PageFactory.initElements(driver, locator);
     }
 
-    public boolean validateLogin(String user, String pwd) {
+    public boolean clickAddToCart() {
         try {
-        	locator.userName.sendKeys(user);
-        	locator.password.sendKeys(pwd);
-        	locator.loginButton.click();
+        	locator.addToCartBtn.click();
+            wait.until(ExpectedConditions.visibilityOf(locator.removeBtn));
+            return locator.removeBtn.getText().equals("Remove");
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean clickCartIcon() {
+        try {
+        	locator.cartIcon.click();
             wait.until(ExpectedConditions.visibilityOf(locator.pageTitle));
-            return locator.pageTitle.getText().equals("Products");
+            return locator.pageTitle.getText().equals("Your Cart");
         } catch (TimeoutException e) {
             return false;
         }

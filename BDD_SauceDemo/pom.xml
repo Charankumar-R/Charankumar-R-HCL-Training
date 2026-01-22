@@ -6,22 +6,17 @@
 	<artifactId>BDD_SauceDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
-		<!-- Source:
-		https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<!-- Cucumber -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>7.33.0</version>
-			<scope>compile</scope>
+			<version>7.14.0</version>
 		</dependency>
 
-		<!-- Source:
-		https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-testng</artifactId>
-			<version>7.33.0</version>
-			<scope>compile</scope>
+			<version>7.14.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
@@ -31,11 +26,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Selenium -->
+		<!-- Source:
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.38.0</version>
+			<version>4.40.0</version>
+			<scope>compile</scope>
 		</dependency>
 		<!-- Apache POI for Excel -->
 		<dependency>
@@ -61,7 +58,8 @@
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>5.1.2</version>
-			</dependency>
+		</dependency>
+
 	</dependencies>
 
 	<build>

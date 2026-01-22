@@ -18,5 +18,10 @@ test-output/
 .DS_Store
 Thumbs.db
 
-# Another repo
-/sauceDemoPageFactory/report-repo
+# Reports
+report-repo/
+ExtentReport.html
+
+# Logs
+logs/
+

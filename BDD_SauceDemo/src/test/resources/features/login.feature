@@ -1,15 +1,20 @@
 Feature: SauceDemo Login
 
-Scenario Outline: Login using different users
-  Given user opens SauceDemo login page
-  When user logs in with "<username>" and "<password>"
-  Then login result should be validated
-
-Examples:
-  | username                | password      |
-  | standard_user           | secret_sauce  |
-  | locked_out_user         | secret_sauce  |
-  | problem_user            | secret_sauce  |
-  | performance_glitch_user | secret_sauce  |
-  | error_user              | secret_sauce  |
-  | visual_user             | secret_sauce  |
+  Scenario Outline: Login validation for SauceDemo users
+    Given user opens SauceDemo application
+    When user logs in with "<username>" and "<password>"
+	And user selects a product "<product>"
+	And user adds product to cart
+	And user proceeds to checkout 
+	And user enters customer details "<firstname>" "<lastname>" "<zipcode>"
+	And user completes the order
+    Then user should be logged out successfully
+    Examples:
+    | username      | password      | firstname | lastname | zipcode |
+      | standard_user | secret_sauce  | John      | Doe      | 600001  |
+      | standard_user           | secret_sauce | John      | Doe      | 600001  |
+      | locked_out_user         | secret_sauce | John      | Doe      | 600001  |
+      | problem_user            | secret_sauce | John      | Doe      | 600001  |
+      | performance_glitch_user | secret_sauce | John      | Doe      | 600001  |
+      | error_user              | secret_sauce | John      | Doe      | 600001  |
+      | visual_user             | secret_sauce | John      | Doe      | 600001  |
