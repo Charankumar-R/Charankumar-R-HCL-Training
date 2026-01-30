@@ -1,0 +1,1 @@
+visual_user is NOT allowed to login (DB)

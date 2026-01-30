@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8680","Login validation for SauceDemo users","","2026-01-27","passed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","12109","Login validation for SauceDemo users","","2026-01-27","failed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","3328","Login validation for SauceDemo users","","2026-01-27","passed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","4431","Login validation for SauceDemo users","","2026-01-27","passed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","9341","Login validation for SauceDemo users","","2026-01-27","passed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","12195","Login validation for SauceDemo users","","2026-01-27","failed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
+"","3785","Login validation for SauceDemo users","","2026-01-27","failed","2026-01-27","","SauceDemo Login","Login validation for SauceDemo users",""
